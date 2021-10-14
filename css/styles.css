@@ -1,0 +1,17 @@
+body {
+    font-family: 'Noto Sans Display', sans-serif;
+    background-color: #deac52;
+    color: black;
+}
+
+.body_header {
+    text-align: center;
+}
+
+.header_logo {
+    margin: 0 85px;
+}
+
+.body_main{
+    text-align: center;
+}
