@@ -43,8 +43,8 @@ let pokemonRepository = (function(){
         let pokeButton = document.createElement('button');
         pokeButton.innerText = pokemon.name;
         pokeButton.classList.add('pokemon-button');
-        pokeListItem.appendChild('pokeButton');
-        pokeList.appendChild('pokeListItem');
+        pokeListItem.appendChild(pokeButton);
+        pokeList.appendChild(pokeListItem);
     }
 
 // The above-mentioned functions have been further defined/labeled here to allow for easier access from outside the IIFE.
