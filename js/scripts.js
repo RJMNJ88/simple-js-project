@@ -43,12 +43,40 @@ let pokemonRepository = (function(){
 })();
 
 // A forEach() loop has been created to access the pokemonList inside the pokemonRepository
+/*
 pokemonRepository.getAll().forEach(function(pokemon){
-    if (pokemon.height > 0.0 && pokemon.height <= 0.9){
-        document.write("<b>" + pokemon.name + "</b>" + " (height: " + pokemon.height + ") - <i>Small</i> <br>");
-    } else if (pokemon.height >= 1.0 && pokemon.height <= 1.9){
-        document.write("<b>" + pokemon.name + "</b>" + " (height: " + pokemon.height + ") - <i>Medium</i> <br>");
-    } else {
-        document.write("<b>" + pokemon.name + "</b>" + " (height: " + pokemon.height + ") - <i>Wow, that's big !</i> <br>");
-    }
+  let pokeListNew = document.querySelector('.pokemon-list');
+  let listItem = document.createElement('li');
+  let button = document.createElement('button');
+  button.innerText = pokemon;
+  button.classList.add('poke-button');
+  li.appendChild(poke-button);
+  poke-list.appendChild(li);
+  
 });
+*/
+
+pokemonRepository.getAll().forEach(document.querySelector('pokemon-list'){
+   let listItem = document.createElement('li'),
+   let pokeButton = document.createElement('button'),
+   pokeButton.innerText = 'pokemonList[i].name',
+   pokeButton.classList.add('button'),
+   listItem.classList.add('li')
+   listItem.appendChild('button'),
+   pokemonList.appendChild('li')
+   
+
+
+  });
+
+
+
+/*
+if (pokemon.height > 0.0 && pokemon.height <= 0.9){
+    document.write("<b>" + pokemon.name + "</b>" + " (height: " + pokemon.height + ") - <i>Small</i> <br>");
+} else if (pokemon.height >= 1.0 && pokemon.height <= 1.9){
+    document.write("<b>" + pokemon.name + "</b>" + " (height: " + pokemon.height + ") - <i>Medium</i> <br>");
+} else {
+    document.write("<b>" + pokemon.name + "</b>" + " (height: " + pokemon.height + ") - <i>Wow, that's big !</i> <br>");
+}
+*/
