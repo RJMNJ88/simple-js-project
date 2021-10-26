@@ -16,23 +16,29 @@ body {
     text-align: center;
 }
 
-/*
-.poke-button{
-    border: none;
+
+.pokemon-button{
+  margin: 2px;
+  width: 100px;
   display: inline-block;
   font-family: inherit;
   background-color: #4d4d4d !important;
   color: white !important;
   text-decoration: none;
-  padding: 10px;
-  border-radius: 3px;
+  padding: 12px;
+  border-radius: 12px;
   border-bottom: 2px solid rgba (0, 0, 0, 0.3);
   transition-duration: 0.2s;
   transition-property: opacity;
 }
 
-.poke-button:hover{
+.pokemon-button:hover{
   cursor: pointer;
   opacity: 0.8;
 }
-*/
+
+.pokemon-list{
+    list-style-type: none;
+    text-align: center;
+    padding-left: 0;
+}
