@@ -45,13 +45,24 @@ let pokemonRepository = (function(){
         pokeButton.classList.add('pokemon-button');
         pokeListItem.appendChild(pokeButton);
         pokeList.appendChild(pokeListItem);
+        
+        pokeButton.addEventListener('click', function() {
+            showDetails(pokemon)
+        });
+
+    
+    }
+
+    function showDetails(pokemon) {
+        console.log(pokemon);
     }
 
 // The above-mentioned functions have been further defined/labeled here to allow for easier access from outside the IIFE.
     return {
         add: add,
         getAll: getAll,
-        addListItem: addListItem
+        addListItem: addListItem,
+        showDetails: showDetails
     };
 })();
 
@@ -65,12 +76,3 @@ pokemonRepository.getAll().forEach(function (pokemon){
 
 
 
-/*
-if (pokemon.height > 0.0 && pokemon.height <= 0.9){
-    document.write("<b>" + pokemon.name + "</b>" + " (height: " + pokemon.height + ") - <i>Small</i> <br>");
-} else if (pokemon.height >= 1.0 && pokemon.height <= 1.9){
-    document.write("<b>" + pokemon.name + "</b>" + " (height: " + pokemon.height + ") - <i>Medium</i> <br>");
-} else {
-    document.write("<b>" + pokemon.name + "</b>" + " (height: " + pokemon.height + ") - <i>Wow, that's big !</i> <br>");
-}
-*/
