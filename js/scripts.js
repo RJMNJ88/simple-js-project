@@ -1,32 +1,10 @@
 // IIFE created using "pokemonRepository" as its name.
 let pokemonRepository = (function(){
 // The pokemonList array has been defined here.
-    let pokemonList = [
-        {
-        name: "Venusaur",
-        height: 2,
-        type: ["Grass", "Poison"]
-        }, 
-        {
-        name: "Blastoise",
-        height: 1.6,
-        type: ["Water"]
-        }, 
-        {
-        name: "Charizard", 
-        height: 1.7, 
-        type: ["Fire", "Flying"]
-        }, 
-        {
-        name: "Pikachu", 
-        height: 0.4, 
-        type: ["Electric"]}, 
-        {
-        name: "Cubone", 
-        height: 0.4, 
-        type: ["Ground"]
-        }
-    ];
+    let pokemonList = [];
+// Create a link to access the pokemonAPI webpage
+    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+
 // The following function will allow users to add pokemon to the pokemonList array.
     function add(pokemon) {
         pokemonList.push(pokemon);
@@ -50,11 +28,46 @@ let pokemonRepository = (function(){
             showDetails(pokemon)
         });
 
-    
+    }
+
+   
+
+// Create a function to GET information from the pokemonAPI webpage
+    function loadList() {
+        return fetch(apiUrl).then(function(response){
+            return response.json();
+        }).then(function(json){
+            json.results.forEach(function (item){
+                let pokemon = {
+                    name: item.name,
+                    detailsUrl: item.url
+                };
+                add(pokemon);
+                console.log(pokemon);
+            });
+        }).catch(function(e){
+            console.error(e);
+        })
+    }
+
+// Adding details to the fetch() from the pokemonAPI
+    function loadDetails(item) {
+        let url = item.detailsUrl;
+        return fetch(url).then(function(response){
+            return response.json();
+        }).then(function(details){
+            item.imageUrl = details.sprites.front_default;
+            item.height = details.height;
+            item.types = details.types;
+        }).catch(function(e){
+            console.error(e);
+        });
     }
 
     function showDetails(pokemon) {
-        console.log(pokemon);
+        loadDetails(pokemon).then(function(){
+            console.log(pokemon);
+        });
     }
 
 // The above-mentioned functions have been further defined/labeled here to allow for easier access from outside the IIFE.
@@ -62,7 +75,9 @@ let pokemonRepository = (function(){
         add: add,
         getAll: getAll,
         addListItem: addListItem,
-        showDetails: showDetails
+        showDetails: showDetails,
+        loadList: loadList,
+        loadDetails: loadDetails
     };
 })();
 
@@ -73,6 +88,12 @@ pokemonRepository.getAll().forEach(function (pokemon){
     pokemonRepository.addListItem(pokemon);
 
   });
+
+pokemonRepository.loadList().then(function(){
+    pokemonRepository.getAll().forEach(function(pokemon){
+        pokemonRepository.addListItem(pokemon);
+    });
+});
 
 
 
