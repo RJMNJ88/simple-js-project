@@ -25,6 +25,7 @@ body {
   background-color: #4d4d4d !important;
   color: white !important;
   text-decoration: none;
+  text-transform: capitalize;
   padding: 12px;
   border-radius: 12px;
   border-bottom: 2px solid rgba (0, 0, 0, 0.3);
@@ -42,3 +43,54 @@ body {
     text-align: center;
     padding-left: 0;
 }
+
+.pokedex-heading {
+    font-size: 40px;
+}
+
+
+#modal-container {
+    display: none;
+    box-sizing: border-box;
+  }
+  
+  #modal-container.is-visible {
+    display: block;
+  }
+
+  .modal {
+    margin: auto;
+    display: inline-block;
+    box-sizing: border-box;
+    background: #fff;
+    padding: 15px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    text-transform: capitalize;
+    border-radius: 20px;
+    border: solid #fff 10px;
+    background-color: #94929E;
+    box-shadow: 0 0 30px 2px #fff;
+  }
+
+  .modal p {
+      font-weight: bold;
+  }
+
+  .modal-close {
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: bold;
+  }
+
+  .image-element {
+      width: 100px;
+      border: none;
+  }
+
+  .heightElement,
+  .titleElement {
+      font-weight: bold;
+  }
+
