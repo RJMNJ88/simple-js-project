@@ -12,7 +12,7 @@ let pokemonRepository = (function(){
 
     function showModal(pokemon) {
         // Clear all content from previously created <div>
-        modalContainer.innerHTML = "";
+        modalContainer.innerHTML = '';
         // Create a new <div> inside "modalContainer"
         let modal = document.createElement('div');
         modal.classList.add('modal');
@@ -26,24 +26,29 @@ let pokemonRepository = (function(){
         // Create the pokemon title, height, and type elements for the modal
         let titleElement = document.createElement('h1');
         titleElement.classList.add('title-element');
-        titleElement.innerText = item.name;
+        titleElement.innerText = pokemon.name;
         let heightElement = document.createElement('p')
         heightElement.classList.add('height-element');
-        heightElement.innerText = 'Height: ' + pokemon.height;
-        let typeElement = document.createElement('p');
-        typeElement.classList.add('type-element');
-        typeElement.innerText = 'Type: ' + pokemon.type;
+        heightElement.innerText = 'Height: ' + pokemon.height/10 + 'm';
         let imageElement = document.createElement('img');
         imageElement.classList.add('image-element');
-        img.url = pokemon.sprites.other['official-artwork']['front_default'];
+        imageElement.src = pokemon.imageUrl;
 
         // Append all newly created elements
-        modal.appendChild('modal-close');
-        modal.appendChild('title-element');
-        modal.appendChild('height-element');
-        modal.appendChild('type-element');
-        modal.appendChild('image-element');
-        modalContainer.appendChild('modal');
+        modal.appendChild(imageElement);
+        modal.appendChild(titleElement);
+        modal.appendChild(heightElement);
+        
+       
+        modalContainer.appendChild(modal);
+
+        pokemon.types.forEach(item => {
+            let typeElement = document.createElement('p');
+            typeElement.innerText = 'Type: ' + item.type.name;
+            modal.appendChild(typeElement);
+        })
+
+        modal.appendChild(closeButtonElement);
 
         // Create a class to enable toggling of the modal container's visibility
         modalContainer.classList.add('is-visible');
@@ -63,11 +68,13 @@ let pokemonRepository = (function(){
 
     // Add an Event Listener to hide the modal container when user clicks outside of the modal
     modalContainer.addEventListener('click', (e) => {
-        let target = e.target
+        let target = e.target;
         if (target === modalContainer) {
             hideModal();
         }
     });
+
+    
 
     // The following function will allow users to add pokemon to the pokemonList array.
     function add(pokemon) {
@@ -129,6 +136,7 @@ let pokemonRepository = (function(){
 
     function showDetails(pokemon) {
         loadDetails(pokemon).then(function(){
+            console.log(pokemon);
             showModal(pokemon);
         });
     }
