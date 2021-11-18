@@ -8,89 +8,77 @@ body {
     text-align: center;
 }
 
-.header_logo {
-    margin: 0 85px;
-}
-
 .body_main{
     text-align: center;
-}
-
-
-.pokemon-button{
-  margin: 2px;
-  width: 100px;
-  display: inline-block;
-  font-family: inherit;
-  background-color: #4d4d4d !important;
-  color: white !important;
-  text-decoration: none;
-  text-transform: capitalize;
-  padding: 12px;
-  border-radius: 12px;
-  border-bottom: 2px solid rgba (0, 0, 0, 0.3);
-  transition-duration: 0.2s;
-  transition-property: opacity;
-}
-
-.pokemon-button:hover{
-  cursor: pointer;
-  opacity: 0.8;
+    margin-top: 60px;
 }
 
 .pokemon-list{
-    list-style-type: none;
-    text-align: center;
-    padding-left: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 .pokedex-heading {
     font-size: 40px;
 }
 
+.modal-content {
+    background: #CFD0D0;
+    border-radius: 20px;
+    border: 4px solid;
+    border-color: #4d4d4d;
+    text-transform: capitalize;
+}
 
+.modal p {
+    font-weight: bold;
+}
+ 
+.poke-list-item {
+    background: none;
+    border: none;
+}
+
+.poke-button {
+    margin: 2px;
+    width: 150px;
+    display: inline-block;
+    font-family: inherit;
+    background-color: #4d4d4d;
+    color: #CFD0D0;
+    text-decoration: none;
+    text-transform: capitalize;
+    padding: 12px;
+    border-radius: 12px;
+    border: 3px solid;
+    border-color: #CFD0D0;
+    transition-duration: 0.2s;
+    transition-property: opacity;
+}
+
+.poke-button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.btn-warning {
+    background: #deac52;
+}
+
+
+
+/* ---------- OLD CODE ---------- */
+
+/* 
 #modal-container {
     display: none;
     box-sizing: border-box;
-  }
+    z-index: 999; 
+    overflow: auto; 
+    display: grid;
+} */
   
-  #modal-container.is-visible {
+/* #modal-container.is-visible {
     display: block;
-  }
-
-  .modal {
-    margin: auto;
-    display: inline-block;
-    box-sizing: border-box;
-    background: #fff;
-    padding: 15px;
-    width: 100%;
-    max-width: 500px;
-    text-align: center;
-    text-transform: capitalize;
-    border-radius: 20px;
-    border: solid #fff 10px;
-    background-color: #94929E;
-    box-shadow: 0 0 30px 2px #fff;
-  }
-
-  .modal p {
-      font-weight: bold;
-  }
-
-  .modal-close {
-      cursor: pointer;
-      border-radius: 5px;
-      font-weight: bold;
-  }
-
-  .image-element {
-      width: 100px;
-      border: none;
-  }
-
-  .heightElement,
-  .titleElement {
-      font-weight: bold;
-  }
-
+} */
