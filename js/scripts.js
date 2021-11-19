@@ -165,60 +165,31 @@ pokemonRepository.loadList().then(function(){
 });
 
 
+//Scroll-to-top button
+let mybutton = document.getElementById("topBtn");
 
+//Create function that displays the button whent he user scrolls down > 200px from the top
+window.onscroll = function() {scrollFunction()};
 
+function scrollFunction() {
+  if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
 
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
 
-
-    //---------- OLD CODE ----------
-
-    //     // Clear all content from previously created <div>
-    //     modalContainer.innerHTML = '';
-    //     // Create a new <div> inside "modalContainer"
-    //     let modal = document.createElement('div');
-    //     modal.classList.add('modal');
-    //     // Create the close button for the modal
-    //     // Add an event listener to the button to allow for closing out the modal
-    //     let closeButtonElement = document.createElement('button');
-    //     closeButtonElement.classList.add('modal-close');
-    //     closeButtonElement.innerText = 'Close';
-    //     closeButtonElement.addEventListener('click', hideModal);
-
-    //     // Create the pokemon title, height, and type elements for the modal
-    //     let titleElement = document.createElement('h1');
-    //     titleElement.classList.add('title-element');
-    //     titleElement.innerText = pokemon.name;
-    //     let heightElement = document.createElement('p')
-    //     heightElement.classList.add('height-element');
-    //     heightElement.innerText = 'Height: ' + pokemon.height/10 + 'm';
-    //     let imageElement = document.createElement('img');
-    //     imageElement.classList.add('image-element');
-    //     imageElement.src = pokemon.imageUrl;
-
-    //     // Append all newly created elements
-    //     modal.appendChild(imageElement);
-    //     modal.appendChild(titleElement);
-    //     modal.appendChild(heightElement);
-        
-       
-    //     modalContainer.appendChild(modal);
-
-        // pokemon.types.forEach(item => {
-        //     let typeElement = document.createElement('p');
-        //     typeElement.innerText = 'Type: ' + item.type.name;
-        //     modal.appendChild(typeElement);
-        // })
-
-    //     modal.appendChild(closeButtonElement);
-
-    //     // Create a class to enable toggling of the modal container's visibility
-    //     modalContainer.classList.add('is-visible');
-
-        // $(document).ready(function () {
-    //     $('#search-input').on('keyup', function () {
-    //         var value = $(this).val().toLowerCase();
-    //         $('.pokemon-list .list-group-item').filter(function () {
-    //             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-    //         });
-    //     });
-    // });
+$(document).ready(function () {
+    $('#search-input').on('keyup', function () {
+        var value = $(this).val().toLowerCase();
+        $('.pokemon-list .list-group-item').filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+        });
+    });
+});
