@@ -4,19 +4,17 @@ body {
     color: black;
 }
 
-.body_header {
-    text-align: center;
-}
-
 .body_main{
-    text-align: center;
     margin-top: 60px;
 }
 
 .pokemon-list{
     list-style: none;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 .pokedex-heading {
@@ -25,6 +23,7 @@ body {
 }
 
 h1 {
+    text-align: center;
     text-shadow: 0 0 20px #CFD0D0
 }
 
@@ -38,8 +37,13 @@ h1 {
     animation-duration: 1.0s;
 }
 
+.modal-body {
+text-align: center;
+}
+
 .modal p {
     font-weight: bold;
+    justify-content: center;
 }
  
 .poke-list-item {
@@ -80,21 +84,25 @@ h1 {
     background-color: #CFD0D0;
 }
 
+.nav-item {
+    align-items: left;
+}
+
 #topBtn {
-    display: none; /* Hidden by default */
-    position: fixed; /* Fixed/sticky position */
-    bottom: 20px; /* Place the button at the bottom of the page */
-    right: 10px; /* Place the button 30px from the right */
-    z-index: 99; /* Make sure it does not overlap */
-    border: solid; /* Remove borders */
+    display: none;
+    position: fixed;
+    bottom: 1em;
+    right: 0.25em;
+    z-index: 99;
+    border: solid;
     border-color: white;
-    outline: none; /* Remove outline */
-    background-color: #4d4d4d; /* Set a background color */
-    color: white; /* Text color */
-    cursor: pointer; /* Add a mouse pointer on hover */
-    padding: 3px 10px 10px 10px;
-    border-radius: 50px; /* Rounded corners */
-    font-size: 20px; /* Increase font size */
+    outline: none;
+    background-color: #4d4d4d;
+    color: white;
+    cursor: pointer;
+    padding: 3px 10px 8px 10px;
+    border-radius: 50px;
+    font-size: 20px;
     transition-duration: 0.1s;
     transition-property: opacity;
 }
